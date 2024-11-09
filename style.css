@@ -1,0 +1,236 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Tangerine:wght@400;700&display=swap");
+
+:root {
+    --color-main: rgb(94, 80, 63);
+    --color-second: rgb(234, 224, 213);
+    --color-text: rgb(34, 51, 63);
+    --font-main: "Newsreader", Georgia, "Times New Roman", Times, serif;
+    --font-second: "Fira Code", monospace;
+    --font-italic: "Tangerine", cursive;
+    --font-base: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+        sans-serif;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    font-size: 10px;
+    font-family: var(--font-main);
+}
+body {
+    background-color: var(--color-second);
+    color: var(--color-text);
+}
+.header {
+    background-color: var(--color-text);
+    color: var(--color-second);
+    padding: 25px 0;
+}
+.wrapper {
+    max-width: 1200px;
+    width: calc(100% - 100px);
+    margin: 0 auto;
+}
+.header__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.title {
+    font-size: 4rem;
+    text-transform: capitalize;
+    letter-spacing: 2px;
+    font-family: var(--font-second);
+}
+.btn {
+    background-color: var(--color-second);
+    color: var(--color-main);
+    padding: 5px 25px;
+    border: none;
+    outline: none;
+    font-family: var(--font-second);
+    font-size: 2rem;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    border: 1px solid var(--color-second);
+    transition: 0.1s ease-in-out;
+}
+.btn:hover {
+    background-color: #fff;
+    color: black;
+}
+.btn:active {
+    scale: 0.97;
+}
+.books {
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 20px;
+}
+.book-card {
+    border-radius: 5px;
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(34, 60, 80, 0.4);
+    -moz-box-shadow: 0px 0px 10px 0px rgba(34, 60, 80, 0.4);
+    box-shadow: 0px 0px 10px 0px rgba(34, 60, 80, 0.4);
+    padding: 20px;
+}
+.book__title {
+    font-family: var(--font-italic);
+    font-size: 5rem;
+    margin-bottom: 15px;
+    border-bottom: 1px solid var(--color-text);
+    padding-bottom: 10px;
+    text-align: center;
+}
+.book__info {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: stretch;
+}
+.line {
+    width: 1px;
+    border-radius: 50%;
+    background-color: var(--color-text);
+}
+.book__author {
+    font-size: 2.4rem;
+    text-transform: capitalize;
+    text-align: right;
+}
+.book__year {
+    font-size: 1.2rem;
+}
+.book__genre {
+    font-size: 1.3rem;
+}
+.read {
+    display: block;
+    text-align: right;
+    font-size: 1.6rem;
+    text-transform: capitalize;
+    margin: 10px 0;
+}
+.btn-remove {
+    background-color: var(--color-text);
+    color: var(--color-second);
+    width: 100%;
+    font-size: 1.5rem;
+    transition: none;
+    transition: scale 0.1s;
+}
+.btn-remove:hover {
+    background-color: var(--color-second);
+    border: 1px solid var(--color-text);
+    color: var(--color-text);
+}
+.overlay {
+    display: none;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgb(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+
+    animation: opening 0.5s forwards;
+}
+
+.modal-window {
+    max-width: 600px;
+    width: calc(100% - 300px);
+    user-select: none;
+    color: var(--color-second);
+    font-size: 2rem;
+    padding: 30px;
+    padding-top: 20px;
+    border: 2px solid var(--color-second);
+    border-radius: 3px;
+}
+.modal-title {
+    font-size: 4.5rem;
+    font-weight: 900;
+    font-family: var(--font-italic);
+}
+.input-block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    gap: 20px;
+    & label {
+        font-size: 2.5rem;
+        font-family: var(--font-base);
+        flex: 1;
+    }
+    & input {
+        padding: 6px;
+        font-size: 1.6rem;
+        flex: 2;
+        width: 85%;
+    }
+}
+.radio-block {
+    margin: 25px 0;
+    display: flex;
+    justify-content: space-evenly;
+    & div {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+    & input {
+        accent-color: var(--color-text);
+        scale: 1.5;
+    }
+    & label {
+        font-family: var(--font-base);
+        cursor: pointer;
+    }
+}
+.btn-block {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    & .btn-submit {
+        flex: 2;
+        color: var(--color-text);
+        border: 2px solid var(--color-text);
+        background-color: #fff;
+    }
+}
+
+.modal-window {
+    display: none;
+    position: absolute;
+    top: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: upToDown 0.5s forwards;
+}
+.open {
+    display: block;
+}
+@keyframes opening {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes upToDown {
+    0% {
+        transform: translateX(-50%) translateY(-1000px);
+    }
+    100% {
+        transform: translateX(-50%) translateY(0px);
+    }
+}

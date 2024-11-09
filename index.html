@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>My library</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <header class="header">
+            <div class="wrapper header__wrapper">
+                <h1 class="title">Mening kutubxonam</h1>
+                <button class="btn add-btn">+ Yangi kitob</button>
+            </div>
+        </header>
+        <main class="main">
+            <div class="wrapper main__wrapper">
+                <div class="books">
+                    <div class="book-card">
+                        <h2 class="book__title">"Dunyoning ishlari"</h2>
+                        <div class="book__info">
+                            <h3 class="book__author">O'tkir Hoshimov</h3>
+
+                            <div class="line"></div>
+
+                            <div>
+                                <h3 class="book__year">1981</h3>
+                                <h3 class="book__genre">Memuar, qissa</h3>
+                            </div>
+                        </div>
+                        <span class="read">o'qib tugatilgan</span>
+
+                        <button class="btn btn-remove">O'chirish</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <div class="overlay"></div>
+        <fieldset class="modal-window">
+            <legend class="modal-title">Yangi Kitob</legend>
+
+            <form class="modal-form">
+                <div class="input-block">
+                    <label for="book-title">Nomi:</label>
+                    <input required type="text" id="book-title" />
+                </div>
+                <div class="input-block">
+                    <label for="book-author">Muallifi:</label>
+                    <input required type="text" id="book-author" />
+                </div>
+                <div class="input-block">
+                    <label for="book-year">Yili:</label>
+                    <input
+                        required
+                        type="number"
+                        min="1"
+                        max="2024"
+                        id="book-year"
+                    />
+                </div>
+                <div class="input-block">
+                    <label for="book-genre">Janri:</label>
+                    <input required type="text" id="book-genre" />
+                </div>
+                <div class="radio-block">
+                    <div>
+                        <input
+                            name="status"
+                            type="radio"
+                            id="finished-reading"
+                            value="finished"
+                        />
+                        <label for="finished-reading">O'qib tugatdim</label>
+                    </div>
+                    <div>
+                        <input
+                            value="reading"
+                            name="status"
+                            type="radio"
+                            id="reading"
+                        />
+                        <label for="reading">O'qiyapman</label>
+                    </div>
+                </div>
+                <div class="btn-block">
+                    <button class="btn btn-reset" type="reset">
+                        O'chirish
+                    </button>
+                    <button class="btn btn-submit" type="submit">
+                        Qo'shish
+                    </button>
+                </div>
+            </form>
+        </fieldset>
+
+        <script src="main.js"></script>
+    </body>
+</html>
